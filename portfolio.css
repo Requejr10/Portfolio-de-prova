@@ -1,0 +1,493 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins','sans-serif';
+}
+
+a{
+    color: #fff;
+    text-decoration:none;
+}
+
+.navbar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay:1.2s ;
+}
+
+@keyframes show-content{
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar ul{
+display: flex;
+}
+
+
+.navbar ul li{
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a{
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+
+}
+
+.navbar ul li:hover a,
+.navbar ul li.active a{
+    color:aqua;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    gap:50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color:#fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay:1.6s ;
+}
+.home-info h1{
+    font-size: 55px;
+
+}
+.home-info h2{
+    display: inline-block;
+    font-size: 32px;
+    margin-top: -10px;
+}
+.home-info h2 span{
+    position: relative;
+    display:inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px aqua;
+    animation:display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text{
+    25%,100%{
+        display: none;
+    }
+}
+
+.home-info h2 span::before{
+    content:attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right:2px solid aqua;
+    color:aqua;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text{
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
+
+.home-info p{
+    font-size: 16px;
+    margin:10px 0 25px;
+}
+
+.home-info .btn-sci{
+    display: flex;
+    align-items: center;
+
+}
+
+.btn:hover{
+    background:transparent ;
+    color:aqua;
+    box-shadow: none;
+
+}
+.home-info .btn-sci {
+    margin-left: 20px;
+}
+.home-info .btn-sci .sci a{
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid aqua;
+    border-radius: 50%;
+    font-size: 25px;
+    color: aqua;
+    margin: 0 8px;
+    transition: .5s;
+
+}
+.home-info .btn-sci .sci a:hover{
+    background: aqua;
+    color:#1f252d;
+    box-shadow: 0 0 10px aqua;
+
+
+}
+.home-img .img-box{
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background:conic-gradient(transparent,transparent,transparent, aqua);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after{
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background:#1f252d;
+    border-radius: 50%;
+    border: .1px solid #1f252d;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-img .img-box .img-item img{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar{
+    width: 100%;
+    height: 100%;
+    background-color: #1f252d;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars{
+    100%{
+        transform:translateY(0%)
+    }
+}
+
+.about {
+    min-height: 100vh;
+    background: #1f252d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 9%;
+    gap: 50px;
+    color: #fff;
+}
+.about-info{
+    flex:1;
+    max-width: 1000px;
+}
+.about h1 {
+    font-size: 48px; /* Tamaño más grande para el h1 */
+    
+    margin-bottom: 30px;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    gap: 50px;
+}
+
+.about-language {
+    flex: 1;
+}
+.about-languages li i.bx-meh-alt {
+    color: aqua;      /* Cambia el color a aqua */
+    font-size: 1.8em; /* Ajusta el tamaño del ícono, puedes cambiar el valor */
+}
+.about-languages li i.bx-home-alt {
+    color: aqua;      /* Cambia el color a aqua */
+    font-size: 1.8em; /* Ajusta el tamaño del ícono, puedes cambiar el valor */
+}
+
+.about-skills {
+    flex: 1;
+    margin-left: 350px;
+}
+
+.about-languages h2,
+.about-skills h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.about-languages ul {
+    padding-left: 0;
+}
+
+.about-languages ul li{
+    display: flex;
+    align-items: center;  /* Alinea el ícono y el texto verticalmente */
+    gap: 10px;            /* Espacio entre el ícono y el texto */
+    margin-bottom: 120px;  /* Reduce el espacio vertical entre los elementos */
+    font-size: 18px;
+}
+
+.progresbar{
+    background: #21272f;
+    padding:20px;
+    border-radius: 8px;
+    width: 2000000%;
+    
+}
+
+.progresbar .skill {
+    margin: 20px 0;
+}
+.progresbar .skill p{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progresbar .skill .Progress{
+    position: relative;
+    width: 100%;
+    height: 15px;
+    background:rgb(149, 149, 149) ;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.progresbar .skill .Progress::before{
+    content: '';
+    position: absolute;
+    width: var(--wth);
+    height: 100%;
+    background: aqua;
+}
+
+
+.curriculum {
+    background-color: #21272f;
+    border-radius: px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: auto; 
+    border: 1px solid aqua;
+}
+
+.curriculum .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.curriculum .sidebar {
+    background-color: aqua;
+    color: #21272f;
+    width: 35%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.curriculum .sidebar .contact p,
+.curriculum .dob {
+    color: #21272f;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.curriculum .sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #21272f;
+    position: relative;
+}
+
+.curriculum .sidebar h2:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #21272f; /* Cambia el color de la línea en la parte azul */
+}
+.curriculum .profile-pic {
+    background-image: url('foro.jpg');
+    background-size: cover;     
+    background-position: top center;
+    background-color: #c4c4c4;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.curriculum .profile-pic p{
+    color: #21272f;
+}
+
+.curriculum .dob {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.curriculum .section {
+    margin-bottom: 30px;
+}
+
+.curriculum .section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #21272f;
+}
+
+.curriculum .section ul {
+    list-style: disc;
+    list-style-position: outside;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 0;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.curriculum .contact p {
+    margin-bottom: 5px;
+}
+
+.curriculum .content {
+    width: 60%;  
+    padding: 50px;
+    box-sizing: border-box; 
+}
+
+.curriculum h1 {
+    margin-top: 50px;
+    color: aqua;
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.curriculum .subtitle {
+    font-size: 25px;
+    margin-bottom: 30px;
+    color: aqua;
+}
+
+.curriculum section {
+    margin-bottom: 20px;
+}
+
+.curriculum h2 {
+    color: aqua;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding-top: 15px;
+    position: relative;
+}
+
+.curriculum h2:before {
+    content: "";
+    position: absolute;
+    top: -10px; 
+    left: 0;
+    width: 100%;
+    height: 1px; 
+    background-color: #ffffff; 
+}
+
+.curriculum p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #ffffff;
+}
+
+.curriculum strong {
+    color: aqua;
+    font-weight: bold;
+}
+body {
+    background-color: #21272f;
+    margin: 0; 
+    padding: 0; 
+}
+
+
