@@ -385,7 +385,7 @@ display: flex;
     background-color: #21272f; /* Cambia el color de la línea en la parte azul */
 }
 .curriculum .profile-pic {
-    background-image: url('foro.jpg');
+    background-image: url('foto.png');
     background-size: cover;     
     background-position: top center;
     background-color: #c4c4c4;
